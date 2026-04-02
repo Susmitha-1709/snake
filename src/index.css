@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-pixel: "Press Start 2P", cursive;
+  --font-terminal: "VT323", monospace;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Static Noise Background */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Screen Tearing Animations */
+@keyframes tear-1 {
+  0% { clip-path: inset(20% 0 80% 0); transform: translate(-4px, 1px); }
+  20% { clip-path: inset(60% 0 10% 0); transform: translate(4px, -1px); }
+  40% { clip-path: inset(40% 0 50% 0); transform: translate(-4px, 2px); }
+  60% { clip-path: inset(80% 0 5% 0); transform: translate(4px, -2px); }
+  80% { clip-path: inset(10% 0 70% 0); transform: translate(-4px, 1px); }
+  100% { clip-path: inset(30% 0 50% 0); transform: translate(4px, -1px); }
+}
+
+@keyframes tear-2 {
+  0% { clip-path: inset(10% 0 60% 0); transform: translate(4px, -1px); }
+  20% { clip-path: inset(30% 0 20% 0); transform: translate(-4px, 1px); }
+  40% { clip-path: inset(70% 0 10% 0); transform: translate(4px, -2px); }
+  60% { clip-path: inset(20% 0 50% 0); transform: translate(-4px, 2px); }
+  80% { clip-path: inset(50% 0 30% 0); transform: translate(4px, -1px); }
+  100% { clip-path: inset(5% 0 80% 0); transform: translate(-4px, 1px); }
+}
+
+.animate-tear-1 {
+  animation: tear-1 0.4s infinite linear alternate-reverse;
+}
+
+.animate-tear-2 {
+  animation: tear-2 0.5s infinite linear alternate-reverse;
+}
+
+/* Audio EQ */
+@keyframes eq-raw {
+  0% { height: 10%; }
+  50% { height: 100%; }
+  100% { height: 10%; }
+}
+
+.animate-eq-raw {
+  animation: eq-raw 0.2s steps(3, end) infinite;
+}
+
+/* CRT Flicker */
+@keyframes flicker {
+  0% { opacity: 0.9; }
+  5% { opacity: 0.8; }
+  10% { opacity: 1; }
+  15% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
+.animate-flicker {
+  animation: flicker 4s infinite;
+}

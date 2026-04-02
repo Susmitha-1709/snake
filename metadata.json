@@ -1,0 +1,5 @@
+{
+  "name": "Synth Snake",
+  "description": "A dark neon aesthetic Snake game with an integrated AI music player.",
+  "requestFramePermissions": []
+}
